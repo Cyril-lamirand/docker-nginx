@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  apache:
+    container_name: vps_nginx
+    hostname: vps_nginx
+    build: ./container/nginx
+    ports:
+      - '8080:80'
+    volumes:
+      - ./templates:/etc/nginx/templates
+    environment:
+      - NGINX_HOST=http://151.80.152.40/
+      - NGINX_PORT=80
